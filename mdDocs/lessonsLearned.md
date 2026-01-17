@@ -5,3 +5,7 @@
 3. Update vite config
 4. Make sure that on Github, 'Pages' is using the gh-pages branch
 5. Could optionally integrate an action, executed upon push, that builds and deploys changes to gh pages
+
+## API key leak
+
+1. Remember to pass API key as an environment variable via .env file
