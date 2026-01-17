@@ -5,6 +5,6 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   // Set `base` so built assets use the correct root when hosted under
   // https://<username>.github.io/<repo>/  (GitHub Pages).
-  base: "https://choiIsabelle.github.io/uOttahack8/",
+  base: "/uOttahack8/",
   plugins: [react()],
 });
