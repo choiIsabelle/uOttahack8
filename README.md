@@ -1,74 +1,31 @@
-# React + TypeScript + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
 # uOttahack8
+
+Project uses OpenRouter SDK to evaluate the efficiency of several Large Language Models when processing a user task.
+The results are evaluated objectively utilzing modern machine learning processes.
+
+Techstack:
+Front-end: React with Typescript, styled with Tailwind CSS
+Back-end: Python
+Hosting: Github pages and AWS Lambda
+
+## Deployment — GitHub Pages
+
+This repository is configured to automatically build and deploy to GitHub Pages whenever you push to the `main` branch.
+
+What I added:
+
+- A GitHub Actions workflow (`.github/workflows/gh-pages.yml`) that runs on push to `main`, builds the app with `npm run build`, and deploys the generated `dist/` folder to the `gh-pages` branch using `JamesIves/github-pages-deploy-action`.
+
+Notes and first-time steps:
+
+1. Make sure your repository is hosted on GitHub at `https://github.com/<owner>/<repo>` (looks like `choiIsabelle/uOttahack8`).
+2. The workflow uses the repository's `GITHUB_TOKEN` so no extra secrets are required.
+3. After the workflow runs, enable GitHub Pages in the repository settings (Settings → Pages) and choose the `gh-pages` branch as the source if it isn't selected automatically. The action usually configures the branch for you; if not, set it manually.
+4. You can also preview locally with:
+
+```bash
+npm install
+npm run dev
+```
+
+If you'd like, I can change the workflow to deploy on tags or from other branches, or use `peaceiris/actions-gh-pages` instead. Let me know which you prefer.
