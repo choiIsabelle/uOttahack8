@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  NOTE: Removed previous global element styles (body, button, a, h1, :root)
+  which were overriding Tailwind utility classes and causing inconsistent
+  visuals. Use Tailwind utility classes in components instead. If you need
+  app-wide variables or light/dark defaults, prefer scoped classes or
+  Tailwind configuration.
+*/
